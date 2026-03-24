@@ -1,20 +1,46 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="PharmacyWarehouse.Views.AddMedicineWindow"
-        Width="400"
-        Height="400"
-        Title="Добавить лекарство">
+        Width="460"
+        Height="520"
+        Title="Добавить новое лекарство"
+        WindowStartupLocation="CenterOwner">
 
-    <StackPanel Margin="10" Spacing="5">
+    <StackPanel Margin="20" Spacing="10">
 
-        <TextBox Name="NameBox" Watermark="Название"/>
-        <TextBox Name="CategoryBox" Watermark="Категория"/>
-        <TextBox Name="ManufacturerBox" Watermark="Производитель"/>
-        <TextBox Name="PackageBox" Watermark="Упаковка"/>
+        <TextBlock Text="Название лекарства" FontWeight="Bold"/>
+        <TextBox Name="NameBox" Watermark="Например: Парацетамол"/>
 
-        <Button Content="Сохранить"
-                Click="Save_Click"/>
+        <TextBlock Text="Категория" FontWeight="Bold"/>
+        <TextBox Name="CategoryBox" Watermark="Например: Жаропонижающее"/>
+
+        <TextBlock Text="Производитель" FontWeight="Bold"/>
+        <TextBox Name="ManufacturerBox" Watermark="Название компании"/>
+
+        <TextBlock Text="Вид упаковки" FontWeight="Bold"/>
+        <TextBox Name="PackageBox" Watermark="Таблетки, флакон, ампулы и т.д."/>
+
+        <TextBlock Text="Регистрационный номер Минздрава" FontWeight="Bold"/>
+        <TextBox Name="RegNumberBox" Watermark="REG-001 или ЛСР-..."/>
+
+        <!-- Даты -->
+        <Grid ColumnDefinitions="*,*">
+            <StackPanel Grid.Column="0" Spacing="5">
+                <TextBlock Text="Дата производства" FontWeight="Bold"/>
+                <DatePicker Name="ManufactureDatePicker"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="5" Margin="10,0,0,0">
+                <TextBlock Text="Срок годности" FontWeight="Bold"/>
+                <DatePicker Name="ExpirationDatePicker"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Content="Сохранить лекарство"
+                Click="Save_Click"
+                HorizontalAlignment="Stretch"
+                Height="40"
+                FontSize="14"
+                Margin="0,15,0,0"/>
 
     </StackPanel>
-
 </Window>
