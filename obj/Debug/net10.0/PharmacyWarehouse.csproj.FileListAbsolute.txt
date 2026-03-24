@@ -72,3 +72,4 @@
 /Users/mwinetrip/PharmacyWarehouse/obj/Debug/net10.0/PharmacyWarehouse.pdb
 /Users/mwinetrip/PharmacyWarehouse/obj/Debug/net10.0/PharmacyWarehouse.genruntimeconfig.cache
 /Users/mwinetrip/PharmacyWarehouse/obj/Debug/net10.0/ref/PharmacyWarehouse.dll
+/Users/mwinetrip/PharmacyWarehouse/obj/Debug/net10.0/PharmacyWarehouse.sourcelink.json

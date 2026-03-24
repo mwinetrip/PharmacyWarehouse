@@ -1,14 +1,11 @@
 namespace PharmacyWarehouse.Models;
 
-// Поставщик
+// Класс: Поставщик
 public class Supplier : Person
 {
-    public string Bank { get; set; } // Название Банка
-    public string AccountNumber { get; set; } // Номер счёта
-    
-    // Информация о поставщике
-    public override string GetInfo()
-    {
-        return $"{base.GetInfo()}, Банк: {{Bank}}, Счет: {{AccountNumber}}";
-    }
+    public string Bank { get; set; } = string.Empty;           // Название банка
+    public string AccountNumber { get; set; } = string.Empty;  // Расчётный счёт
+
+    public override string GetInfo() =>
+        $"{base.GetInfo()}, банк: {Bank}, счёт: {AccountNumber}";
 }

@@ -1,15 +1,20 @@
 namespace PharmacyWarehouse.Models;
 
-// Позиция лекарства в накладной
+// Позиция в накладной (приход или расход)
 public class InvoiceItem
 {
-    public Medicine Medicine { get; set; } // Лекарство
-    public int Quantity { get; set; } // Количество одного вида лекарства
+    public int Id { get; set; } // Уникальный идентификатор позиции
+
+    public int MedicineId { get; set; } // Уникальный идентификатор лекарства
+    public Medicine? Medicine { get; set; } // Навигационное свойство (ссылка на лекарство)
+
     public decimal Price { get; set; } // Цена за единицу
-    
-    // Общая стоимость
-    public decimal GetTotalPrice()
-    {
-        return Price * Quantity;
-    }
+    public int Quantity { get; set; } // Количество
+
+    public decimal Total => Price * Quantity; // Общая стоимость
+
+    public override string ToString() =>
+        Medicine != null 
+            ? $"{Medicine.Name} — {Quantity} шт. по {Price} ₽" 
+            : $"Позиция {MedicineId} — {Quantity} шт.";
 }

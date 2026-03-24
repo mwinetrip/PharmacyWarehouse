@@ -3,15 +3,13 @@ namespace PharmacyWarehouse.Models;
 // Базовый класс: Человек
 public abstract class Person
 {
-    public int Id { get; set; } // Идентификатор
-    public string Name { get; set; } // Имя
-    public string Address { get; set; } // Адрес
-    public string Phone { get; set; } // Номер телефона
-    public string Inn { get; set; } // ИНН
+    public int Id { get; set; } // Уникальный идентификатор
     
-    // Информация о человеке
-    public virtual string GetInfo()
-    {
-        return $"Id: {Id}, Name: {Name}, Address: {Address}, Phone: {Phone}";
-    }
+    public string Name { get; set; } = string.Empty; // Название организации или ФИО
+    public string Address { get; set; } = string.Empty; // Адрес
+    public string Phone { get; set; } = string.Empty; // Номер телефона
+    public string Inn { get; set; } = string.Empty; // ИНН (10 или 12 цифр)
+
+    public virtual string GetInfo() =>
+        $"{Name} (ИНН: {Inn}), тел: {Phone}, адрес: {Address}";
 }
