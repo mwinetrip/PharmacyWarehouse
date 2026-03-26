@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PharmacyWarehouse.Views.CustomersView">
+    
+    <DockPanel Margin="10">
+        <Button DockPanel.Dock="Top" Content="Добавить покупателя" 
+                HorizontalAlignment="Left" Margin="0,0,0,10"
+                Height="35" Width="180"/>
+        <TextBlock Text="Список покупателей будет здесь" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+    </DockPanel>
+</UserControl>

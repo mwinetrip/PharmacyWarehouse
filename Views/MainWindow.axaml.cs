@@ -7,12 +7,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+        // Можно добавить логику при закрытии окна (сохранение данных)
+        this.Closed += (s, e) =>
+        {
+            // При желании можно вызвать DataManager.SaveAll() здесь
+        };
     }
-    
-    private void AddMedicine_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        var window = new AddMedicineWindow();
-        window.ShowDialog(this);
-    }
-    
 }

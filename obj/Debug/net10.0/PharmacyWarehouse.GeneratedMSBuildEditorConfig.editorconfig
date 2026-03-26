@@ -29,5 +29,20 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/mwinetrip/PharmacyWarehouse/Views/AddMedicineWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/mwinetrip/PharmacyWarehouse/Views/CustomersView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/IncomingInvoicesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/mwinetrip/PharmacyWarehouse/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/MedicinesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/SalesInvoicesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/SuppliersView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

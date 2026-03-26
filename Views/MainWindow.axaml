@@ -1,21 +1,43 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:PharmacyWarehouse.ViewModels"
+        xmlns:views="using:PharmacyWarehouse.Views"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
         x:Class="PharmacyWarehouse.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        Title="Аптечный склад — Информационная система"
         Icon="/Assets/avalonia-logo.ico"
-        Title="PharmacyWarehouse">
-    
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+        Width="1000" Height="650"
+        WindowStartupLocation="CenterScreen">
 
-    <Button Content="Добавить лекарство"
-            Click="AddMedicine_Click"/>
-    
+    <TabControl Margin="10" TabStripPlacement="Top">
+
+        <!-- Вкладка 1: Лекарства -->
+        <TabItem Header="Лекарства">
+            <views:MedicinesView />
+        </TabItem>
+
+        <!-- Вкладка 2: Поставщики -->
+        <TabItem Header="Поставщики">
+            <views:SuppliersView />
+        </TabItem>
+
+        <!-- Вкладка 3: Покупатели -->
+        <TabItem Header="Покупатели">
+            <views:CustomersView />
+        </TabItem>
+
+        <!-- Вкладка 4: Приходные накладные -->
+        <TabItem Header="Приход на склад">
+            <views:IncomingInvoicesView />
+        </TabItem>
+
+        <!-- Вкладка 5: Счета-фактуры -->
+        <TabItem Header="Счета-фактуры (Расход)">
+            <views:SalesInvoicesView />
+        </TabItem>
+
+    </TabControl>
 </Window>
