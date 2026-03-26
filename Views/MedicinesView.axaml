@@ -13,10 +13,11 @@
                 Click="AddMedicine_Click" 
                 Height="40" Width="220" FontSize="14"/>
 
-        <DataGrid ItemsSource="{Binding MedicinesVM.Medicines}" 
+        <DataGrid ItemsSource="{Binding Medicines}" 
                   AutoGenerateColumns="True"
                   IsReadOnly="True"
                   GridLinesVisibility="All"
-                  Margin="0,10,0,0"/>
+                  Margin="0,10,0,0"
+                  CanUserReorderColumns="True"/>
     </DockPanel>
 </UserControl>

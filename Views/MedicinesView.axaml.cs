@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using PharmacyWarehouse.ViewModels;           // для MainWindowViewModel
-using PharmacyWarehouse.Views;                // для AddMedicineWindow
+using PharmacyWarehouse.Views;   // для AddMedicineWindow
 
 namespace PharmacyWarehouse.Views;
 

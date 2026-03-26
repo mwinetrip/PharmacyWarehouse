@@ -2,41 +2,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:PharmacyWarehouse.ViewModels"
         xmlns:views="using:PharmacyWarehouse.Views"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
         x:Class="PharmacyWarehouse.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
         Title="Аптечный склад — Информационная система"
-        Icon="/Assets/avalonia-logo.ico"
-        Width="1000" Height="650"
+        Width="1100" Height="700"
         WindowStartupLocation="CenterScreen">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
 
     <TabControl Margin="10" TabStripPlacement="Top">
 
-        <!-- Вкладка 1: Лекарства -->
         <TabItem Header="Лекарства">
-            <views:MedicinesView />
+            <views:MedicinesView DataContext="{Binding MedicinesVM}"/>
         </TabItem>
 
-        <!-- Вкладка 2: Поставщики -->
         <TabItem Header="Поставщики">
-            <views:SuppliersView />
+            <views:SuppliersView DataContext="{Binding SuppliersVM}"/>
         </TabItem>
 
-        <!-- Вкладка 3: Покупатели -->
         <TabItem Header="Покупатели">
-            <views:CustomersView />
+            <views:CustomersView DataContext="{Binding CustomersVM}"/>
         </TabItem>
 
-        <!-- Вкладка 4: Приходные накладные -->
         <TabItem Header="Приход на склад">
-            <views:IncomingInvoicesView />
+            <views:IncomingInvoicesView DataContext="{Binding IncomingVM}"/>
         </TabItem>
 
-        <!-- Вкладка 5: Счета-фактуры -->
         <TabItem Header="Счета-фактуры (Расход)">
-            <views:SalesInvoicesView />
+            <views:SalesInvoicesView DataContext="{Binding SalesVM}"/>
         </TabItem>
 
     </TabControl>
