@@ -10,10 +10,10 @@ public partial class IncomingInvoicesView : UserControl
         InitializeComponent();
     }
 
-    private void AddIncomingInvoices_Click(object? sender, RoutedEventArgs e)
+    private void AddIncomingInvoice_Click(object? sender, RoutedEventArgs e)
     {
         // Пока заглушка — позже создадим окно
-        // var window = new AddIncomingInvoicesWindow();
+        // var window = new AddIncomingInvoiceWindow();
         // window.ShowDialog((Window)this.VisualRoot!);
     }
 }
