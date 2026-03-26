@@ -1,6 +1,5 @@
-﻿using System;
-using PharmacyWarehouse.Services;
-using PharmacyWarehouse.ViewModels.Pages;   // создадим эту папку чуть позже
+﻿using PharmacyWarehouse.Services;
+using PharmacyWarehouse.ViewModels.Pages;
 
 namespace PharmacyWarehouse.ViewModels;
 
@@ -8,7 +7,6 @@ public class MainWindowViewModel : ViewModelBase
 {
     private readonly DataManager _dataManager;
 
-    // ViewModels для каждой вкладки
     public MedicinesViewModel MedicinesVM { get; }
     public SuppliersViewModel SuppliersVM { get; }
     public CustomersViewModel CustomersVM { get; }
