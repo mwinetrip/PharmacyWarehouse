@@ -2,14 +2,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
              x:Class="PharmacyWarehouse.Views.SuppliersView">
-    
-    <DockPanel Margin="10">
-        <Button DockPanel.Dock="Top" Content="Добавить поставщика" 
-                HorizontalAlignment="Left" Margin="0,0,0,10"
-                Height="35" Width="180"/>
-        <TextBlock Text="Список поставщиков будет здесь" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+
+    <DockPanel Margin="15">
+        <Button DockPanel.Dock="Top" 
+                Content="➕ Добавить поставщика" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,0,15"
+                Click="AddSupplier_Click" 
+                Height="40" Width="220" FontSize="14"/>
+
+        <DataGrid ItemsSource="{Binding Suppliers}" 
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All"
+                  Margin="0,10,0,0"/>
     </DockPanel>
 </UserControl>
