@@ -123,4 +123,13 @@ public class DataManager
         SalesInvoices.Add(invoice);
         SaveAll();
     }
+    
+    // ====================== Методы для позиций ======================
+
+    public void AddInvoiceItemToIncoming(IncomingInvoice invoice, InvoiceItem item)
+    {
+        item.Id = invoice.Items.Count > 0 ? invoice.Items.Max(i => i.Id) + 1 : 1;
+        invoice.Items.Add(item);
+        SaveAll();
+    }
 }

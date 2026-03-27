@@ -6,6 +6,7 @@
         <entry key="App.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddCustomerWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddIncomingInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddInvoiceItemDialog.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddMedicineWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddSupplierWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/CustomersView.axaml" value="PharmacyWarehouse.csproj" />

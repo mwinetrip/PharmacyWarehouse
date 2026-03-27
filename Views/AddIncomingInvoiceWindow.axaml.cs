@@ -12,6 +12,12 @@ public partial class AddIncomingInvoiceWindow : Window
     private readonly DataManager _dataManager;
     private readonly ObservableCollection<InvoiceItem> _currentItems = new();
 
+    private void AddItem_Click(object? sender, RoutedEventArgs e)
+    {
+        var dialog = new AddInvoiceItemDialog(_dataManager, item => _currentItems.Add(item));
+        dialog.ShowDialog(this);
+    }
+    
     public AddIncomingInvoiceWindow()
     {
         InitializeComponent();
@@ -56,12 +62,11 @@ public partial class AddIncomingInvoiceWindow : Window
             ReceiptDate = ReceiptDatePicker.SelectedDate?.DateTime ?? DateTime.Now,
             SupplierId = selectedSupplier.Id,
             Supplier = selectedSupplier,
-            Items = new List<InvoiceItem>(_currentItems),   // копируем позиции
-            SellerName = "Администратор" // можно сделать поле для ввода
+            Items = new List<InvoiceItem>(_currentItems),
+            SellerName = "Администратор"
         };
 
         _dataManager.AddIncomingInvoice(invoice);
-
         Close();
     }
 

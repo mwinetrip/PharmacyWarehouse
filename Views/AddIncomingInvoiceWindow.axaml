@@ -26,8 +26,18 @@
 
         <TextBlock Text="Позиции накладной" FontWeight="Bold" Margin="0,10,0,5"/>
 
-        <!-- Здесь позже будет DataGrid позиций + кнопки добавления позиции -->
+        <!-- Добавь после ComboBox поставщика -->
+        <Button Content="➕ Добавить позицию" 
+                Click="AddItem_Click" 
+                HorizontalAlignment="Left" 
+                Width="180" Height="35" Margin="0,10,0,0"/>
 
+        <!-- Добавь DataGrid для просмотра текущих позиций -->
+        <DataGrid ItemsSource="{Binding _currentItems}" 
+                  AutoGenerateColumns="True" 
+                  IsReadOnly="True" 
+                  Height="200" Margin="0,10,0,0"/>
+        
         <Button Content="Сохранить приходную накладную"
                 Click="Save_Click"
                 HorizontalAlignment="Stretch"

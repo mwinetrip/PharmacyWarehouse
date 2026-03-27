@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PharmacyWarehouse.Views.AddInvoiceItemDialog"
+        Width="500"
+        Height="320"
+        Title="Добавить позицию в накладную"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="12">
+
+        <TextBlock Text="Лекарство" FontWeight="Bold"/>
+        <ComboBox Name="MedicineComboBox" PlaceholderText="Выберите лекарство" />
+
+        <Grid ColumnDefinitions="*,*">
+            <StackPanel Grid.Column="0" Spacing="8">
+                <TextBlock Text="Количество" FontWeight="Bold"/>
+                <TextBox Name="QuantityBox" Watermark="10" Text="1"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="8" Margin="15,0,0,0">
+                <TextBlock Text="Цена за единицу (₽)" FontWeight="Bold"/>
+                <TextBox Name="PriceBox" Watermark="150.00"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Content="Добавить позицию"
+                Click="AddItem_Click"
+                HorizontalAlignment="Stretch"
+                Height="45"
+                Margin="0,20,0,0"/>
+    </StackPanel>
+</Window>
