@@ -10,7 +10,7 @@ public partial class IncomingInvoicesView : UserControl
         InitializeComponent();
     }
 
-    private void AddIncomingInvoice_Click(object? sender, RoutedEventArgs e)
+    private void AddIncoming_Click(object? sender, RoutedEventArgs e)
     {
         var window = new AddIncomingInvoiceWindow();
         window.ShowDialog((Window)this.VisualRoot!);

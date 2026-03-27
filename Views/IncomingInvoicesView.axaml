@@ -10,13 +10,12 @@
                 Content="➕ Добавить приходную накладную" 
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
-                Click="AddIncomingInvoice_Click" 
-                Height="40" Width="220" FontSize="14"/>
+                Click="AddIncoming_Click" 
+                Height="40" Width="260" FontSize="14"/>
 
         <DataGrid ItemsSource="{Binding IncomingInvoices}" 
                   AutoGenerateColumns="True"
                   IsReadOnly="True"
-                  GridLinesVisibility="All"
-                  Margin="0,10,0,0"/>
+                  GridLinesVisibility="All"/>
     </DockPanel>
 </UserControl>

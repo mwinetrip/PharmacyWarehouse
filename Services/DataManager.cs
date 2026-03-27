@@ -102,5 +102,25 @@ public class DataManager
         SaveAll();
     }
 
-    // Добавь аналогичные методы для IncomingInvoice и SalesInvoice позже
+    // ====================== Методы для накладных ======================
+
+    public void AddIncomingInvoice(IncomingInvoice invoice)
+    {
+        invoice.Id = IncomingInvoices.Count > 0 
+            ? IncomingInvoices.Max(i => i.Id) + 1 
+            : 1;
+    
+        IncomingInvoices.Add(invoice);
+        SaveAll();
+    }
+
+    public void AddSalesInvoice(SalesInvoice invoice)
+    {
+        invoice.Id = SalesInvoices.Count > 0 
+            ? SalesInvoices.Max(i => i.Id) + 1 
+            : 1;
+    
+        SalesInvoices.Add(invoice);
+        SaveAll();
+    }
 }
