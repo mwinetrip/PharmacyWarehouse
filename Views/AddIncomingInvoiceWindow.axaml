@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PharmacyWarehouse.Views.AddIncomingInvoiceWindow"
+        Width="700"
+        Height="620"
+        Title="Регистрация приходной накладной"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="15">
+
+        <TextBlock Text="Приходная накладная" FontSize="18" FontWeight="Bold"/>
+
+        <Grid ColumnDefinitions="*,*">
+            <StackPanel Grid.Column="0" Spacing="8">
+                <TextBlock Text="Номер накладной" FontWeight="Bold"/>
+                <TextBox Name="InvoiceNumberBox" Watermark="ПН-20260327-001"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="8" Margin="20,0,0,0">
+                <TextBlock Text="Дата поступления" FontWeight="Bold"/>
+                <DatePicker Name="ReceiptDatePicker"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="Поставщик" FontWeight="Bold"/>
+        <ComboBox Name="SupplierComboBox" PlaceholderText="Выберите поставщика" />
+
+        <TextBlock Text="Позиции накладной" FontWeight="Bold" Margin="0,10,0,5"/>
+
+        <!-- Здесь позже будет DataGrid позиций + кнопки добавления позиции -->
+
+        <Button Content="Сохранить приходную накладную"
+                Click="Save_Click"
+                HorizontalAlignment="Stretch"
+                Height="45"
+                Margin="0,20,0,0"/>
+    </StackPanel>
+</Window>

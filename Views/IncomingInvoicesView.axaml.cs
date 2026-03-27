@@ -12,8 +12,7 @@ public partial class IncomingInvoicesView : UserControl
 
     private void AddIncomingInvoice_Click(object? sender, RoutedEventArgs e)
     {
-        // Пока заглушка — позже создадим окно
-        // var window = new AddIncomingInvoiceWindow();
-        // window.ShowDialog((Window)this.VisualRoot!);
+        var window = new AddIncomingInvoiceWindow();
+        window.ShowDialog((Window)this.VisualRoot!);
     }
 }
