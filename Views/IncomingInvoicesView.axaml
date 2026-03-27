@@ -2,8 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:PharmacyWarehouse.ViewModels.Pages"
              mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
-             x:Class="PharmacyWarehouse.Views.IncomingInvoicesView">
+             x:Class="PharmacyWarehouse.Views.IncomingInvoicesView"
+             x:DataType="vm:IncomingInvoicesViewModel">
 
     <DockPanel Margin="15">
         <Button DockPanel.Dock="Top" 

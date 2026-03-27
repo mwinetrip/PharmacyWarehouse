@@ -11,11 +11,10 @@ namespace PharmacyWarehouse.Views;
 public partial class AddIncomingInvoiceWindow : Window
 {
     private readonly DataManager _dataManager;
-    private readonly ObservableCollection<InvoiceItem> _currentItems = new();
-
+    public ObservableCollection<InvoiceItem> CurrentItems { get; } = new();
     private void AddItem_Click(object? sender, RoutedEventArgs e)
     {
-        var dialog = new AddInvoiceItemDialog(_dataManager, item => _currentItems.Add(item));
+        var dialog = new AddInvoiceItemDialog(_dataManager, item => CurrentItems.Add(item));
         dialog.ShowDialog(this);
     }
     
@@ -51,7 +50,7 @@ public partial class AddIncomingInvoiceWindow : Window
             return;
         }
 
-        if (_currentItems.Count == 0)
+        if (CurrentItems.Count == 0)
         {
             ShowError("Добавьте хотя бы одну позицию в накладную!");
             return;
@@ -63,7 +62,7 @@ public partial class AddIncomingInvoiceWindow : Window
             ReceiptDate = ReceiptDatePicker.SelectedDate?.DateTime ?? DateTime.Now,
             SupplierId = selectedSupplier.Id,
             Supplier = selectedSupplier,
-            Items = new List<InvoiceItem>(_currentItems),
+            Items = new List<InvoiceItem>(CurrentItems),
             SellerName = "Администратор"
         };
 

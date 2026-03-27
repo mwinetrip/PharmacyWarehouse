@@ -1,6 +1,8 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PharmacyWarehouse.Views"
         x:Class="PharmacyWarehouse.Views.AddSalesInvoiceWindow"
+        x:DataType="vm:AddSalesInvoiceWindow"
         Width="700"
         Height="620"
         Title="Выписка счёта-фактуры"
@@ -33,7 +35,7 @@
                 Width="180" Height="35" Margin="0,10,0,0"/>
 
         <DataGrid Name="ItemsGrid" 
-                  ItemsSource="{Binding _currentItems}" 
+                  ItemsSource="{Binding CurrentItems}" 
                   AutoGenerateColumns="True" 
                   IsReadOnly="True" 
                   Height="220" Margin="0,10,0,0"/>

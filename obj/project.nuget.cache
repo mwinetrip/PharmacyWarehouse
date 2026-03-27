@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L+4NvObCioE=",
+  "dgSpecHash": "7YMupLnwfD8=",
   "success": true,
   "projectFilePath": "/Users/mwinetrip/PharmacyWarehouse/PharmacyWarehouse.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/mwinetrip/.nuget/packages/avalonia.angle.windows.natives/2.1.25547.20250602/avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/avalonia.buildservices/11.3.2/avalonia.buildservices.11.3.2.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/avalonia.controls.colorpicker/11.3.12/avalonia.controls.colorpicker.11.3.12.nupkg.sha512",
+    "/Users/mwinetrip/.nuget/packages/avalonia.controls.datagrid/11.3.12/avalonia.controls.datagrid.11.3.12.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/avalonia.desktop/11.3.12/avalonia.desktop.11.3.12.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/avalonia.diagnostics/11.3.12/avalonia.diagnostics.11.3.12.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/avalonia.fonts.inter/11.3.12/avalonia.fonts.inter.11.3.12.nupkg.sha512",
@@ -31,7 +32,6 @@
     "/Users/mwinetrip/.nuget/packages/skiasharp.nativeassets.macos/2.88.9/skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/skiasharp.nativeassets.webassembly/2.88.9/skiasharp.nativeassets.webassembly.2.88.9.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/skiasharp.nativeassets.win32/2.88.9/skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
-    "/Users/mwinetrip/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/Users/mwinetrip/.nuget/packages/tmds.dbus.protocol/0.21.2/tmds.dbus.protocol.0.21.2.nupkg.sha512"
   ],
   "logs": []

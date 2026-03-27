@@ -18,7 +18,7 @@ public class Medicine
     public string PackageType { get; set; } = string.Empty; // Вид упаковки
     
     // Проверяет, просрочено ли лекарство
-    public bool IsExpired() => DateTime.Now.Date > ExpirationDate.Date;
+    public bool IsExpired => DateTime.Now.Date > ExpirationDate.Date;
     
     // Проверяет, сколько осталось дней до истечения срока годности
     public int DaysToExpiration => (ExpirationDate.Date - DateTime.Now.Date).Days;
