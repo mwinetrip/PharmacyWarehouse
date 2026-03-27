@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PharmacyWarehouse.Views.AddSalesInvoiceWindow"
+        Width="700"
+        Height="620"
+        Title="Выписка счёта-фактуры"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="15">
+
+        <TextBlock Text="Счёт-фактура (расход)" FontSize="18" FontWeight="Bold"/>
+
+        <Grid ColumnDefinitions="*,*">
+            <StackPanel Grid.Column="0" Spacing="8">
+                <TextBlock Text="Номер счёта" FontWeight="Bold"/>
+                <TextBox Name="InvoiceNumberBox" Watermark="СФ-20260327-001"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Spacing="8" Margin="20,0,0,0">
+                <TextBlock Text="Дата выписки" FontWeight="Bold"/>
+                <DatePicker Name="IssueDatePicker"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="Покупатель" FontWeight="Bold"/>
+        <ComboBox Name="CustomerComboBox" PlaceholderText="Выберите покупателя" />
+
+        <TextBlock Text="Продавец (ФИО)" FontWeight="Bold"/>
+        <TextBox Name="SellerNameBox" Watermark="Иванов И.И."/>
+
+        <Button Content="➕ Добавить позицию" 
+                Click="AddItem_Click" 
+                HorizontalAlignment="Left" 
+                Width="180" Height="35" Margin="0,10,0,0"/>
+
+        <DataGrid Name="ItemsGrid" 
+                  ItemsSource="{Binding _currentItems}" 
+                  AutoGenerateColumns="True" 
+                  IsReadOnly="True" 
+                  Height="220" Margin="0,10,0,0"/>
+
+        <Button Content="Сохранить счёт-фактуру"
+                Click="Save_Click"
+                HorizontalAlignment="Stretch"
+                Height="45"
+                Margin="0,15,0,0"/>
+    </StackPanel>
+</Window>

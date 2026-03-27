@@ -4,6 +4,7 @@ using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace PharmacyWarehouse.Views;
 

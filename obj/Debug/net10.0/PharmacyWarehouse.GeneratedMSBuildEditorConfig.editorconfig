@@ -38,6 +38,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/mwinetrip/PharmacyWarehouse/Views/AddMedicineWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddSalesInvoiceWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/mwinetrip/PharmacyWarehouse/Views/AddSupplierWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

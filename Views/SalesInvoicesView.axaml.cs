@@ -10,10 +10,9 @@ public partial class SalesInvoicesView : UserControl
         InitializeComponent();
     }
 
-    private void AddSalesInvoice_Click(object? sender, RoutedEventArgs e)
+    private void AddSales_Click(object? sender, RoutedEventArgs e)
     {
-        // Пока заглушка — позже создадим окно
-        // var window = new AddSalesInvoicesWindow();
-        // window.ShowDialog((Window)this.VisualRoot!);
+        var window = new AddSalesInvoiceWindow();
+        window.ShowDialog((Window)this.VisualRoot!);
     }
 }
