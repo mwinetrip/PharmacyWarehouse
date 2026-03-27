@@ -26,7 +26,13 @@ build_property.EnableCodeStyleSeverity =
 [/Users/mwinetrip/PharmacyWarehouse/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddCustomerWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/mwinetrip/PharmacyWarehouse/Views/AddMedicineWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddSupplierWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/mwinetrip/PharmacyWarehouse/Views/CustomersView.axaml]

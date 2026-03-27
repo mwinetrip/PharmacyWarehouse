@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PharmacyWarehouse.Views.AddSupplierWindow"
+        Width="460"
+        Height="520"
+        Title="Добавить поставщика"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="12">
+
+        <TextBlock Text="Название поставщика / организации" FontWeight="Bold"/>
+        <TextBox Name="NameBox" Watermark="ООО ФармСнаб"/>
+
+        <TextBlock Text="ИНН" FontWeight="Bold"/>
+        <TextBox Name="InnBox" Watermark="123456789012" MaxLength="12"/>
+
+        <TextBlock Text="Адрес" FontWeight="Bold"/>
+        <TextBox Name="AddressBox" Watermark="г. Москва, ул. Примерная, д. 10"/>
+
+        <TextBlock Text="Телефон" FontWeight="Bold"/>
+        <TextBox Name="PhoneBox" Watermark="+7 (999) 123-45-67"/>
+
+        <TextBlock Text="Название банка" FontWeight="Bold"/>
+        <TextBox Name="BankBox" Watermark="Сбербанк"/>
+
+        <TextBlock Text="Номер расчётного счёта" FontWeight="Bold"/>
+        <TextBox Name="AccountBox" Watermark="40702810000000000000"/>
+
+        <Button Content="Сохранить поставщика"
+                Click="Save_Click"
+                HorizontalAlignment="Stretch"
+                Height="45"
+                Margin="0,20,0,0"
+                FontSize="14"/>
+    </StackPanel>
+</Window>

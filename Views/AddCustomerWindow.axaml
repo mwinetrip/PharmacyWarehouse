@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PharmacyWarehouse.Views.AddCustomerWindow"
+        Width="460"
+        Height="420"
+        Title="Добавить покупателя"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="20" Spacing="12">
+
+        <TextBlock Text="Название покупателя (аптека / учреждение)" FontWeight="Bold"/>
+        <TextBox Name="NameBox" Watermark="Аптека № 123"/>
+
+        <TextBlock Text="ИНН" FontWeight="Bold"/>
+        <TextBox Name="InnBox" Watermark="7707083893" MaxLength="12"/>
+
+        <TextBlock Text="Адрес" FontWeight="Bold"/>
+        <TextBox Name="AddressBox" Watermark="г. Москва, ул. Ленина, 45"/>
+
+        <TextBlock Text="Телефон" FontWeight="Bold"/>
+        <TextBox Name="PhoneBox" Watermark="+7 (495) 123-45-67"/>
+
+        <Button Content="Сохранить покупателя"
+                Click="Save_Click"
+                HorizontalAlignment="Stretch"
+                Height="45"
+                Margin="0,25,0,0"/>
+    </StackPanel>
+</Window>

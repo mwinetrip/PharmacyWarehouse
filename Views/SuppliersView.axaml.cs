@@ -12,8 +12,7 @@ public partial class SuppliersView : UserControl
 
     private void AddSupplier_Click(object? sender, RoutedEventArgs e)
     {
-        // Пока заглушка — позже создадим окно
-        // var window = new AddSupplierWindow();
-        // window.ShowDialog((Window)this.VisualRoot!);
+        var window = new AddSupplierWindow();
+        window.ShowDialog((Window)this.VisualRoot!);
     }
 }

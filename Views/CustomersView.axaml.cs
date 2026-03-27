@@ -12,8 +12,7 @@ public partial class CustomersView : UserControl
 
     private void AddCustomer_Click(object? sender, RoutedEventArgs e)
     {
-        // Пока заглушка — позже создадим окно
-        // var window = new AddCustomerWindow();
-        // window.ShowDialog((Window)this.VisualRoot!);
+        var window = new AddCustomerWindow();
+        window.ShowDialog((Window)this.VisualRoot!);
     }
 }
