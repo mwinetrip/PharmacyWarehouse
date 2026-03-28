@@ -2,4 +2,5 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/Users/mwinetrip/PharmacyWarehouse/bin/Debug/net10.0/SkiaSharp.dll" /&gt;
   &lt;Assembly Path="/Users/mwinetrip/PharmacyWarehouse/bin/Debug/net10.0/Avalonia.Controls.DataGrid.dll" /&gt;
+  &lt;Assembly Path="/Users/mwinetrip/PharmacyWarehouse/bin/Debug/net10.0/PharmacyWarehouse.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

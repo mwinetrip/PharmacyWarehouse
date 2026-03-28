@@ -2,8 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dg="using:Avalonia.Controls"
              xmlns:vm="using:PharmacyWarehouse.ViewModels.Pages"
-             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
+             mc:Ignorable="d"
              x:Class="PharmacyWarehouse.Views.IncomingInvoicesView"
              x:DataType="vm:IncomingInvoicesViewModel">
 
@@ -13,11 +14,21 @@
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddIncoming_Click" 
-                Height="40" Width="260" FontSize="14"/>
+                Height="42" Width="260" FontSize="14"/>
 
-        <DataGrid ItemsSource="{Binding IncomingInvoices}" 
-                  AutoGenerateColumns="True"
-                  IsReadOnly="True"
-                  GridLinesVisibility="All"/>
+        <dg:DataGrid ItemsSource="{Binding IncomingInvoices}" 
+                     AutoGenerateColumns="False"
+                     IsReadOnly="True"
+                     GridLinesVisibility="All">
+
+            <dg:DataGrid.Columns>
+                <dg:DataGridTextColumn Header="№ накладной" Binding="{Binding InvoiceNumber}" Width="140"/>
+                <dg:DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}" Width="130"/>
+                <dg:DataGridTextColumn Header="Поставщик" Binding="{Binding Supplier.Name}" Width="280"/>
+                <dg:DataGridTextColumn Header="Кол-во позиций" Binding="{Binding Items.Count}" Width="120"/>
+                <dg:DataGridTextColumn Header="Общая сумма" Binding="{Binding TotalAmount, StringFormat='0.00 ₽'}" Width="140"/>
+                <dg:DataGridTextColumn Header="Принял" Binding="{Binding SellerName}" Width="150"/>
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
     </DockPanel>
 </UserControl>

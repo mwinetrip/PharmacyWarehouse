@@ -2,23 +2,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dg="using:Avalonia.Controls"
              xmlns:vm="using:PharmacyWarehouse.ViewModels.Pages"
-             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
+             mc:Ignorable="d"
              x:Class="PharmacyWarehouse.Views.SuppliersView"
              x:DataType="vm:SuppliersViewModel">
-    
+
     <DockPanel Margin="15">
         <Button DockPanel.Dock="Top" 
                 Content="➕ Добавить поставщика" 
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddSupplier_Click" 
-                Height="40" Width="220" FontSize="14"/>
+                Height="42" Width="220" FontSize="14"/>
 
-        <DataGrid ItemsSource="{Binding Suppliers}" 
-                  AutoGenerateColumns="True"
-                  IsReadOnly="True"
-                  GridLinesVisibility="All"
-                  Margin="0,10,0,0"/>
+        <dg:DataGrid ItemsSource="{Binding Suppliers}" 
+                     AutoGenerateColumns="False"
+                     IsReadOnly="True"
+                     GridLinesVisibility="All">
+
+            <dg:DataGrid.Columns>
+                <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                <dg:DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="300"/>
+                <dg:DataGridTextColumn Header="ИНН" Binding="{Binding Inn}" Width="130"/>
+                <dg:DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="150"/>
+                <dg:DataGridTextColumn Header="Банк" Binding="{Binding Bank}" Width="180"/>
+                <dg:DataGridTextColumn Header="Расчётный счёт" Binding="{Binding AccountNumber}" Width="200"/>
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
     </DockPanel>
 </UserControl>
