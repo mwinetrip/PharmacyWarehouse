@@ -15,45 +15,42 @@ public partial class AddMedicineWindow : Window
         InitializeComponent();
         _dataManager = new DataManager();
 
-        // Значения по умолчанию
         ManufactureDatePicker.SelectedDate = DateTime.Now.AddMonths(-3);
         ExpirationDatePicker.SelectedDate = DateTime.Now.AddYears(1);
     }
 
-    private void Save_Click(object? sender, RoutedEventArgs e)
+    private async void Save_Click(object? sender, RoutedEventArgs e)
     {
-        // ====================== ВАЛИДАЦИЯ ======================
-
         if (string.IsNullOrWhiteSpace(NameBox.Text))
         {
-            ShowError("Название лекарства обязательно для заполнения!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Название лекарства обязательно для заполнения!");
             NameBox.Focus();
             return;
         }
 
         if (string.IsNullOrWhiteSpace(CategoryBox.Text))
         {
-            ShowError("Категория лекарства обязательна!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Категория лекарства обязательна!");
             CategoryBox.Focus();
             return;
         }
 
         if (string.IsNullOrWhiteSpace(ManufacturerBox.Text))
         {
-            ShowError("Укажите производителя!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите производителя!");
             ManufacturerBox.Focus();
             return;
         }
 
         if (ManufactureDatePicker.SelectedDate == null)
         {
-            ShowError("Выберите дату производства!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите дату производства!");
             return;
         }
 
         if (ExpirationDatePicker.SelectedDate == null)
         {
-            ShowError("Выберите срок годности!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите срок годности!");
             return;
         }
 
@@ -62,24 +59,23 @@ public partial class AddMedicineWindow : Window
 
         if (manufacture > DateTime.Now.Date)
         {
-            ShowError("Дата производства не может быть в будущем!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Дата производства не может быть в будущем!");
             return;
         }
 
         if (expiration <= manufacture)
         {
-            ShowError("Срок годности должен быть позже даты производства!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Срок годности должен быть позже даты производства!");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(RegNumberBox.Text))
         {
-            ShowError("Регистрационный номер Минздрава обязателен!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Регистрационный номер Минздрава обязателен!");
             RegNumberBox.Focus();
             return;
         }
 
-        // ====================== Создание объекта ======================
         var medicine = new Medicine
         {
             Name = NameBox.Text.Trim(),
@@ -92,26 +88,6 @@ public partial class AddMedicineWindow : Window
         };
 
         _dataManager.AddMedicine(medicine);
-
         Close();
-    }
-
-    private void ShowError(string message)
-    {
-        var msgBox = new Window
-        {
-            Title = "Ошибка ввода",
-            Width = 400,
-            Height = 180,
-            WindowStartupLocation = WindowStartupLocation.CenterOwner,
-            Content = new TextBlock 
-            { 
-                Text = message, 
-                Margin = new Avalonia.Thickness(20),
-                TextWrapping = Avalonia.Media.TextWrapping.Wrap 
-            }
-        };
-
-        msgBox.ShowDialog(this);
     }
 }
