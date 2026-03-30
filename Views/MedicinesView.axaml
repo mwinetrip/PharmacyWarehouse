@@ -14,13 +14,13 @@
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddMedicine_Click" 
-                Height="42" Width="220" FontSize="14"/>
+                Height="42" 
+                Width="220" />
 
         <dg:DataGrid ItemsSource="{Binding Medicines}" 
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
                      GridLinesVisibility="All"
-                     CanUserReorderColumns="True"
                      CanUserResizeColumns="True">
 
             <dg:DataGrid.Columns>
@@ -30,8 +30,8 @@
                 <dg:DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}" Width="200"/>
                 <dg:DataGridTextColumn Header="Упаковка" Binding="{Binding PackageType}" Width="130"/>
                 <dg:DataGridTextColumn Header="Рег. номер" Binding="{Binding RegistrationNumber}" Width="140"/>
-                <dg:DataGridTextColumn Header="Произведено" Binding="{Binding ManufactureDate, StringFormat=dd.MM.yyyy}" Width="120"/>
-                <dg:DataGridTextColumn Header="Годен до" Binding="{Binding ExpirationDate, StringFormat=dd.MM.yyyy}" Width="120"/>
+                <dg:DataGridTextColumn Header="Дата производства" Binding="{Binding ManufactureDate, StringFormat=dd.MM.yyyy}" Width="130"/>
+                <dg:DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=dd.MM.yyyy}" Width="130"/>
                 <dg:DataGridTextColumn Header="Просрочено" Binding="{Binding IsExpired}" Width="100"/>
             </dg:DataGrid.Columns>
         </dg:DataGrid>

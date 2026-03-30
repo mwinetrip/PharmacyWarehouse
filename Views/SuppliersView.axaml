@@ -14,18 +14,21 @@
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddSupplier_Click" 
-                Height="42" Width="220" FontSize="14"/>
+                Height="42" 
+                Width="220" />
 
         <dg:DataGrid ItemsSource="{Binding Suppliers}" 
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
-                     GridLinesVisibility="All">
+                     GridLinesVisibility="All"
+                     CanUserResizeColumns="True">
 
             <dg:DataGrid.Columns>
                 <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                <dg:DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="300"/>
-                <dg:DataGridTextColumn Header="ИНН" Binding="{Binding Inn}" Width="130"/>
-                <dg:DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="150"/>
+                <dg:DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="320"/>
+                <dg:DataGridTextColumn Header="ИНН" Binding="{Binding Inn}" Width="140"/>
+                <dg:DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="160"/>
+                <dg:DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="300"/>
                 <dg:DataGridTextColumn Header="Банк" Binding="{Binding Bank}" Width="180"/>
                 <dg:DataGridTextColumn Header="Расчётный счёт" Binding="{Binding AccountNumber}" Width="200"/>
             </dg:DataGrid.Columns>

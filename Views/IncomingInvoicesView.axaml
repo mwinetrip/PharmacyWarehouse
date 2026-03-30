@@ -14,20 +14,22 @@
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddIncoming_Click" 
-                Height="42" Width="260" FontSize="14"/>
+                Height="42" 
+                Width="260" />
 
         <dg:DataGrid ItemsSource="{Binding IncomingInvoices}" 
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
-                     GridLinesVisibility="All">
+                     GridLinesVisibility="All"
+                     CanUserResizeColumns="True">
 
             <dg:DataGrid.Columns>
-                <dg:DataGridTextColumn Header="№ накладной" Binding="{Binding InvoiceNumber}" Width="140"/>
-                <dg:DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}" Width="130"/>
+                <dg:DataGridTextColumn Header="№ накладной" Binding="{Binding InvoiceNumber}" Width="150"/>
+                <dg:DataGridTextColumn Header="Дата поступления" Binding="{Binding ReceiptDate, StringFormat=dd.MM.yyyy}" Width="140"/>
                 <dg:DataGridTextColumn Header="Поставщик" Binding="{Binding Supplier.Name}" Width="280"/>
-                <dg:DataGridTextColumn Header="Кол-во позиций" Binding="{Binding Items.Count}" Width="120"/>
+                <dg:DataGridTextColumn Header="Кол-во позиций" Binding="{Binding Items.Count}" Width="110"/>
                 <dg:DataGridTextColumn Header="Общая сумма" Binding="{Binding TotalAmount, StringFormat='0.00 ₽'}" Width="140"/>
-                <dg:DataGridTextColumn Header="Принял" Binding="{Binding SellerName}" Width="150"/>
+                <dg:DataGridTextColumn Header="Принял" Binding="{Binding SellerName}" Width="160"/>
             </dg:DataGrid.Columns>
         </dg:DataGrid>
     </DockPanel>

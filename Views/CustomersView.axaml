@@ -14,12 +14,14 @@
                 HorizontalAlignment="Left" 
                 Margin="0,0,0,15"
                 Click="AddCustomer_Click" 
-                Height="42" Width="220" FontSize="14"/>
+                Height="42" 
+                Width="220" />
 
         <dg:DataGrid ItemsSource="{Binding Customers}" 
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
-                     GridLinesVisibility="All">
+                     GridLinesVisibility="All"
+                     CanUserResizeColumns="True">
 
             <dg:DataGrid.Columns>
                 <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>

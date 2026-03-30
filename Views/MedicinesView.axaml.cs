@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using PharmacyWarehouse.Views;   // для AddMedicineWindow
 
 namespace PharmacyWarehouse.Views;
 
