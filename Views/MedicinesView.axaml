@@ -15,7 +15,7 @@
                 Margin="0,0,0,15"
                 Click="AddMedicine_Click" 
                 Height="42" 
-                Width="220" />
+                Width="280" />
 
         <dg:DataGrid ItemsSource="{Binding Medicines}" 
                      AutoGenerateColumns="False"

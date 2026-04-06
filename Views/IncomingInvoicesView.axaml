@@ -15,7 +15,7 @@
                 Margin="0,0,0,15"
                 Click="AddIncoming_Click" 
                 Height="42" 
-                Width="260" />
+                Width="280" />
 
         <dg:DataGrid ItemsSource="{Binding IncomingInvoices}" 
                      AutoGenerateColumns="False"
