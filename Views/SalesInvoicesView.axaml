@@ -8,15 +8,18 @@
              x:DataType="vm:SalesInvoicesViewModel">
 
     <DockPanel Margin="15">
-        <Button DockPanel.Dock="Top" 
-                Content="➕ Выписать счёт-фактуру" 
-                HorizontalAlignment="Left" 
-                Margin="0,0,0,15"
-                Click="AddSales_Click" 
-                Height="42" 
-                Width="280" />
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="10" Margin="0,0,0,15">
+            <Button Content="➕ Выписать счёт-фактуру" 
+                    Click="AddSales_Click" 
+                    Height="42" Width="280" />
+
+            <Button Content="🗑 Удалить выбранное" 
+                    Command="{Binding DeleteCommand}"
+                    Height="42" Width="200"/>
+        </StackPanel>
 
         <DataGrid ItemsSource="{Binding SalesInvoices}" 
+                     SelectedItem="{Binding SelectedSales}"
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
                      GridLinesVisibility="All"

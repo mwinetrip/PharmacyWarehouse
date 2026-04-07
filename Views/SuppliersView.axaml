@@ -8,15 +8,18 @@
              x:DataType="vm:SuppliersViewModel">
 
     <DockPanel Margin="15">
-        <Button DockPanel.Dock="Top" 
-                Content="➕ Добавить поставщика" 
-                HorizontalAlignment="Left" 
-                Margin="0,0,0,15"
-                Click="AddSupplier_Click" 
-                Height="42" 
-                Width="280" />
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="10" Margin="0,0,0,15">
+            <Button Content="➕ Добавить поставщика" 
+                    Click="AddSupplier_Click" 
+                    Height="42" Width="280" />
+
+            <Button Content="🗑 Удалить выбранное" 
+                    Command="{Binding DeleteCommand}"
+                    Height="42" Width="200"/>
+        </StackPanel>
 
         <DataGrid ItemsSource="{Binding Suppliers}" 
+                     SelectedItem="{Binding SelectedSupplier}"
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
                      GridLinesVisibility="All"

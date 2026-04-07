@@ -8,15 +8,20 @@
              x:DataType="vm:MedicinesViewModel">
 
     <DockPanel Margin="15">
-        <Button DockPanel.Dock="Top" 
-                Content="➕ Добавить лекарство" 
-                HorizontalAlignment="Left" 
-                Margin="0,0,0,15"
-                Click="AddMedicine_Click" 
-                Height="42" 
-                Width="280" />
+        <!-- Панель кнопок -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="10" Margin="0,0,0,15">
+            <Button Content="➕ Добавить лекарство" 
+                    Click="AddMedicine_Click" 
+                    Height="42" Width="280" />
 
+            <Button Content="🗑 Удалить выбранное" 
+                    Command="{Binding DeleteCommand}"
+                    Height="42" Width="200"/>
+        </StackPanel>
+
+        <!-- Таблица -->
         <DataGrid ItemsSource="{Binding Medicines}" 
+                     SelectedItem="{Binding SelectedMedicine}"
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
                      GridLinesVisibility="All"
