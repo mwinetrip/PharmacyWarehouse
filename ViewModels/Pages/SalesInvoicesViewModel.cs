@@ -14,4 +14,9 @@ public class SalesInvoicesViewModel : ViewModelBase
     {
         _dataManager = dataManager;
     }
+    
+    public void Refresh()
+    {
+        OnPropertyChanged(nameof(SalesInvoices));
+    }
 }

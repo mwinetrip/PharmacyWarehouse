@@ -14,4 +14,9 @@ public class SuppliersViewModel : ViewModelBase
     {
         _dataManager = dataManager;
     }
+    
+    public void Refresh()
+    {
+        OnPropertyChanged(nameof(Suppliers));
+    }
 }

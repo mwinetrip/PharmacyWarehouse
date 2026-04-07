@@ -5,17 +5,44 @@ using PharmacyWarehouse.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
 
-public partial class AddSalesInvoiceWindow : Window
+public partial class AddSalesInvoiceWindow : Window, INotifyPropertyChanged
 {
     private readonly DataManager _dataManager;
-    public ObservableCollection<InvoiceItem> CurrentItems { get; } = new();
+
+    private ObservableCollection<InvoiceItem> _currentItems = new();
+
+    public ObservableCollection<InvoiceItem> CurrentItems
+    {
+        get => _currentItems;
+        set
+        {
+            if (_currentItems != value)
+            {
+                _currentItems = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
     public AddSalesInvoiceWindow()
     {
         InitializeComponent();
+        
         _dataManager = new DataManager();
+        DataContext = this;                    // Важно для {Binding CurrentItems}
 
         IssueDatePicker.SelectedDate = DateTime.Now;
         LoadCustomers();
@@ -34,30 +61,31 @@ public partial class AddSalesInvoiceWindow : Window
         dialog.ShowDialog(this);
     }
 
-    private void Save_Click(object? sender, RoutedEventArgs e)
+    private async void Save_Click(object? sender, RoutedEventArgs e)
     {
         if (string.IsNullOrWhiteSpace(InvoiceNumberBox.Text))
         {
-            ShowError("Укажите номер счёта!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите номер счёта-фактуры!");
+            InvoiceNumberBox.Focus();
             return;
         }
 
         if (CustomerComboBox.SelectedItem is not Customer selectedCustomer)
         {
-            ShowError("Выберите покупателя!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите покупателя!");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(SellerNameBox.Text))
         {
-            ShowError("Укажите фамилию продавца!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите фамилию продавца!");
             SellerNameBox.Focus();
             return;
         }
 
         if (CurrentItems.Count == 0)
         {
-            ShowError("Добавьте хотя бы одну позицию!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Добавьте хотя бы одну позицию в счёт!");
             return;
         }
 
@@ -72,25 +100,12 @@ public partial class AddSalesInvoiceWindow : Window
         };
 
         _dataManager.AddSalesInvoice(invoice);
-
-        Close();
-    }
-
-    private void ShowError(string message)
-    {
-        var msgBox = new Window
+        
+        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
         {
-            Title = "Ошибка",
-            Width = 420,
-            Height = 170,
-            WindowStartupLocation = WindowStartupLocation.CenterOwner,
-            Content = new TextBlock 
-            { 
-                Text = message, 
-                Margin = new Avalonia.Thickness(25),
-                TextWrapping = Avalonia.Media.TextWrapping.Wrap 
-            }
-        };
-        msgBox.ShowDialog(this);
+            vm.RefreshAll();
+        }
+        
+        Close();
     }
 }

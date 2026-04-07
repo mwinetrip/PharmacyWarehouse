@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
 using System;
+using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
 
@@ -41,6 +42,12 @@ public partial class AddCustomerWindow : Window
         };
 
         _dataManager.AddCustomer(customer);
+        
+        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
+        {
+            vm.RefreshAll();
+        }
+        
         Close();
     }
 

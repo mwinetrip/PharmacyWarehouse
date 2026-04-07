@@ -14,4 +14,9 @@ public class MedicinesViewModel : ViewModelBase
     {
         _dataManager = dataManager;
     }
+    
+    public void Refresh()
+    {
+        OnPropertyChanged(nameof(Medicines));
+    }
 }

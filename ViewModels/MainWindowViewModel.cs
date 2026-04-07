@@ -23,4 +23,13 @@ public class MainWindowViewModel : ViewModelBase
         IncomingVM = new IncomingInvoicesViewModel(_dataManager);
         SalesVM = new SalesInvoicesViewModel(_dataManager);
     }
+
+    public void RefreshAll()
+    {
+        MedicinesVM.Refresh();
+        SuppliersVM.Refresh();
+        CustomersVM.Refresh();
+        IncomingVM.Refresh();
+        SalesVM.Refresh();
+    }
 }

@@ -5,27 +5,46 @@ using PharmacyWarehouse.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
 
-public partial class AddIncomingInvoiceWindow : Window
+public partial class AddIncomingInvoiceWindow : Window, INotifyPropertyChanged
 {
     private readonly DataManager _dataManager;
-    public ObservableCollection<InvoiceItem> CurrentItems { get; } = new();
-    private void AddItem_Click(object? sender, RoutedEventArgs e)
+
+    private ObservableCollection<InvoiceItem> _currentItems = new();
+    public ObservableCollection<InvoiceItem> CurrentItems
     {
-        var dialog = new AddInvoiceItemDialog(_dataManager, item => CurrentItems.Add(item));
-        dialog.ShowDialog(this);
+        get => _currentItems;
+        set
+        {
+            if (_currentItems != value)
+            {
+                _currentItems = value;
+                OnPropertyChanged();
+            }
+        }
     }
-    
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
     public AddIncomingInvoiceWindow()
     {
         InitializeComponent();
+        
         _dataManager = new DataManager();
+        DataContext = this;                    // Обязательно для Binding CurrentItems
 
         ReceiptDatePicker.SelectedDate = DateTime.Now;
         LoadSuppliers();
-        // LoadMedicines(); // можно добавить позже для выбора лекарства
     }
 
     private void LoadSuppliers()
@@ -35,24 +54,30 @@ public partial class AddIncomingInvoiceWindow : Window
             SupplierComboBox.SelectedIndex = 0;
     }
 
-    private void Save_Click(object? sender, RoutedEventArgs e)
+    private void AddItem_Click(object? sender, RoutedEventArgs e)
+    {
+        var dialog = new AddInvoiceItemDialog(_dataManager, item => CurrentItems.Add(item));
+        dialog.ShowDialog(this);
+    }
+
+    private async void Save_Click(object? sender, RoutedEventArgs e)
     {
         if (string.IsNullOrWhiteSpace(InvoiceNumberBox.Text))
         {
-            ShowError("Укажите номер приходной накладной!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите номер приходной накладной!");
             InvoiceNumberBox.Focus();
             return;
         }
 
         if (SupplierComboBox.SelectedItem is not Supplier selectedSupplier)
         {
-            ShowError("Выберите поставщика!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите поставщика!");
             return;
         }
 
         if (CurrentItems.Count == 0)
         {
-            ShowError("Добавьте хотя бы одну позицию в накладную!");
+            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Добавьте хотя бы одну позицию в накладную!");
             return;
         }
 
@@ -67,25 +92,12 @@ public partial class AddIncomingInvoiceWindow : Window
         };
 
         _dataManager.AddIncomingInvoice(invoice);
-        Close();
-    }
-
-    private void ShowError(string message)
-    {
-        var msgBox = new Window
+        
+        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
         {
-            Title = "Ошибка ввода",
-            Width = 420,
-            Height = 170,
-            WindowStartupLocation = WindowStartupLocation.CenterOwner,
-            Content = new TextBlock 
-            { 
-                Text = message, 
-                Margin = new Avalonia.Thickness(25),
-                TextWrapping = Avalonia.Media.TextWrapping.Wrap,
-                FontSize = 14
-            }
-        };
-        msgBox.ShowDialog(this);
+            vm.RefreshAll();
+        }
+        
+        Close();
     }
 }

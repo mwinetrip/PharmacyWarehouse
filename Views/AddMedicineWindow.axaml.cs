@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
 using System;
+using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
 
@@ -88,6 +89,12 @@ public partial class AddMedicineWindow : Window
         };
 
         _dataManager.AddMedicine(medicine);
+        
+        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
+        {
+            vm.RefreshAll();
+        }
+        
         Close();
     }
 }
