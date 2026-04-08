@@ -10,10 +10,11 @@ namespace PharmacyWarehouse.ViewModels.Pages;
 public partial class MedicinesViewModel : ViewModelBase
 {
     private readonly DataManager _dataManager;
-    
+
     public ObservableCollection<Medicine> Medicines => _dataManager.Medicines;
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(DeleteCommand))]
     private Medicine? selectedMedicine;
 
     public IRelayCommand DeleteCommand { get; }
@@ -28,13 +29,13 @@ public partial class MedicinesViewModel : ViewModelBase
     {
         if (SelectedMedicine == null) return;
 
-        // Проверка: используется ли лекарство в накладных?
         bool isUsed = _dataManager.IncomingInvoices.Any(i => i.Items.Any(item => item.MedicineId == SelectedMedicine.Id)) ||
                       _dataManager.SalesInvoices.Any(i => i.Items.Any(item => item.MedicineId == SelectedMedicine.Id));
 
         if (isUsed)
         {
-            // Можно показать MessageBox, но пока просто пропускаем
+            MessageBoxService.ShowErrorAsync(null, "Невозможно удалить", 
+                "Лекарство используется в накладных и не может быть удалено.");
             return;
         }
 

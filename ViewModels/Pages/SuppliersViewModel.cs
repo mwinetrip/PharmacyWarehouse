@@ -14,6 +14,7 @@ public partial class SuppliersViewModel : ViewModelBase
     public ObservableCollection<Supplier> Suppliers => _dataManager.Suppliers;
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(DeleteCommand))]
     private Supplier? selectedSupplier;
 
     public IRelayCommand DeleteCommand { get; }
@@ -33,7 +34,7 @@ public partial class SuppliersViewModel : ViewModelBase
         if (isUsed)
         {
             MessageBoxService.ShowErrorAsync(null, "Невозможно удалить", 
-                "Поставщик используется в приходных накладных.");
+                "Поставщик используется в приходных накладных и не может быть удалён.");
             return;
         }
 

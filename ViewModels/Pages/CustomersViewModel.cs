@@ -14,6 +14,7 @@ public partial class CustomersViewModel : ViewModelBase
     public ObservableCollection<Customer> Customers => _dataManager.Customers;
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(DeleteCommand))]
     private Customer? selectedCustomer;
 
     public IRelayCommand DeleteCommand { get; }
@@ -33,7 +34,7 @@ public partial class CustomersViewModel : ViewModelBase
         if (isUsed)
         {
             MessageBoxService.ShowErrorAsync(null, "Невозможно удалить", 
-                "Покупатель используется в счетах-фактурах.");
+                "Покупатель используется в счетах-фактурах и не может быть удалён.");
             return;
         }
 

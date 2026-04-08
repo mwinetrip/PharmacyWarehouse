@@ -13,6 +13,7 @@ public partial class IncomingInvoicesViewModel : ViewModelBase
     public ObservableCollection<IncomingInvoice> IncomingInvoices => _dataManager.IncomingInvoices;
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(DeleteCommand))]
     private IncomingInvoice? selectedIncoming;
 
     public IRelayCommand DeleteCommand { get; }
