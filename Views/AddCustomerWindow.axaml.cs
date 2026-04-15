@@ -14,8 +14,7 @@ public partial class AddCustomerWindow : Window
     public AddCustomerWindow()
     {
         InitializeComponent();
-        _dataManager = new DataManager();
-    }
+        _dataManager = DataManager.Instance;    }
 
     private async void Save_Click(object? sender, RoutedEventArgs e)
     {

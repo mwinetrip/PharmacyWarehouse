@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "Id": 1,
+    "InvoiceNumber": "0",
+    "ReceiptDate": "2026-04-15T00:00:00",
+    "SupplierId": 1,
+    "Supplier": {
+      "Bank": "0",
+      "AccountNumber": "0",
+      "Id": 1,
+      "Name": "0",
+      "Address": "0",
+      "Phone": "0",
+      "Inn": "1234567890"
+    },
+    "Items": [
+      {
+        "Id": 0,
+        "MedicineId": 1,
+        "Medicine": {
+          "Id": 1,
+          "Name": "0",
+          "Category": "0",
+          "ManufactureDate": "2026-01-15T00:00:00",
+          "ExpirationDate": "2027-04-15T00:00:00",
+          "RegistrationNumber": "0",
+          "Manufacturer": "0",
+          "PackageType": "0",
+          "IsExpired": false,
+          "DaysToExpiration": 365
+        },
+        "Price": 150,
+        "Quantity": 1,
+        "Total": 150
+      }
+    ],
+    "TotalAmount": 150,
+    "SellerName": "\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+  },
+  {
+    "Id": 2,
+    "InvoiceNumber": "1",
+    "ReceiptDate": "2026-04-15T00:00:00",
+    "SupplierId": 2,
+    "Supplier": {
+      "Bank": "0",
+      "AccountNumber": "0",
+      "Id": 2,
+      "Name": "\u043F\u0430\u043F\u0430",
+      "Address": "0",
+      "Phone": "0",
+      "Inn": "1234567890"
+    },
+    "Items": [
+      {
+        "Id": 0,
+        "MedicineId": 1,
+        "Medicine": {
+          "Id": 1,
+          "Name": "0",
+          "Category": "0",
+          "ManufactureDate": "2026-01-15T00:00:00",
+          "ExpirationDate": "2027-04-15T00:00:00",
+          "RegistrationNumber": "0",
+          "Manufacturer": "0",
+          "PackageType": "0",
+          "IsExpired": false,
+          "DaysToExpiration": 365
+        },
+        "Price": 150,
+        "Quantity": 2,
+        "Total": 300
+      }
+    ],
+    "TotalAmount": 300,
+    "SellerName": "\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440"
+  }
+]

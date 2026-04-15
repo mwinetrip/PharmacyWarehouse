@@ -14,7 +14,7 @@ public partial class AddSupplierWindow : Window
     public AddSupplierWindow()
     {
         InitializeComponent();
-        _dataManager = new DataManager();
+        _dataManager = DataManager.Instance;
     }
 
     private async void Save_Click(object? sender, RoutedEventArgs e)

@@ -41,7 +41,7 @@ public partial class AddSalesInvoiceWindow : Window, INotifyPropertyChanged
     {
         InitializeComponent();
         
-        _dataManager = new DataManager();
+        _dataManager = DataManager.Instance;
         DataContext = this;                    // Важно для {Binding CurrentItems}
 
         IssueDatePicker.SelectedDate = DateTime.Now;

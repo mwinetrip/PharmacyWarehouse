@@ -15,8 +15,8 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
-        _dataManager = new DataManager();
-
+        _dataManager = DataManager.Instance;
+        
         MedicinesVM = new MedicinesViewModel(_dataManager);
         SuppliersVM = new SuppliersViewModel(_dataManager);
         CustomersVM = new CustomersViewModel(_dataManager);

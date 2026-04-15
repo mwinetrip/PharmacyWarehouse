@@ -10,8 +10,11 @@ namespace PharmacyWarehouse.Services;
 
 public class DataManager
 {
+    private static DataManager? _instance;
+    public static DataManager Instance => _instance ??= new DataManager();
+
     private const string DataFolder = "Data";
-    
+
     public ObservableCollection<Medicine> Medicines { get; private set; } = new();
     public ObservableCollection<Supplier> Suppliers { get; private set; } = new();
     public ObservableCollection<Customer> Customers { get; private set; } = new();
@@ -21,11 +24,10 @@ public class DataManager
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
         WriteIndented = true,
-        PropertyNameCaseInsensitive = true,
-        ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles // на всякий случай
+        PropertyNameCaseInsensitive = true
     };
 
-    public DataManager()
+    private DataManager()
     {
         Directory.CreateDirectory(DataFolder);
         LoadAll();
@@ -55,7 +57,6 @@ public class DataManager
         IncomingInvoices = LoadCollection<IncomingInvoice>("incoming_invoices.json");
         SalesInvoices = LoadCollection<SalesInvoice>("sales_invoices.json");
 
-        // === КРИТИЧНОЕ ИСПРАВЛЕНИЕ: восстановление навигационных свойств ===
         LinkAllEntities();
     }
 
@@ -82,28 +83,22 @@ public class DataManager
         var supplierDict = Suppliers.ToDictionary(s => s.Id);
         var customerDict = Customers.ToDictionary(c => c.Id);
 
-        // Связываем приходные накладные
         foreach (var invoice in IncomingInvoices)
         {
             invoice.Supplier = supplierDict.TryGetValue(invoice.SupplierId, out var s) ? s : null;
             foreach (var item in invoice.Items)
-            {
                 item.Medicine = medicineDict.TryGetValue(item.MedicineId, out var m) ? m : null;
-            }
         }
 
-        // Связываем счета-фактуры
         foreach (var invoice in SalesInvoices)
         {
             invoice.Customer = customerDict.TryGetValue(invoice.CustomerId, out var c) ? c : null;
             foreach (var item in invoice.Items)
-            {
                 item.Medicine = medicineDict.TryGetValue(item.MedicineId, out var m) ? m : null;
-            }
         }
     }
 
-    // ====================== Добавление ======================
+    // Методы добавления
     public void AddMedicine(Medicine medicine)
     {
         medicine.Id = Medicines.Count > 0 ? Medicines.Max(m => m.Id) + 1 : 1;
@@ -130,7 +125,7 @@ public class DataManager
         invoice.Id = IncomingInvoices.Count > 0 ? IncomingInvoices.Max(i => i.Id) + 1 : 1;
         IncomingInvoices.Add(invoice);
         SaveAll();
-        LinkAllEntities(); // обновляем связи
+        LinkAllEntities();
     }
 
     public void AddSalesInvoice(SalesInvoice invoice)

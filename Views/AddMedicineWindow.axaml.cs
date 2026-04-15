@@ -14,8 +14,8 @@ public partial class AddMedicineWindow : Window
     public AddMedicineWindow()
     {
         InitializeComponent();
-        _dataManager = new DataManager();
-
+        _dataManager = DataManager.Instance;
+        
         ManufactureDatePicker.SelectedDate = DateTime.Now.AddMonths(-3);
         ExpirationDatePicker.SelectedDate = DateTime.Now.AddYears(1);
     }

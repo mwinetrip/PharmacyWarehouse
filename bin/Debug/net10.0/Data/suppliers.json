@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "Bank": "0",
+    "AccountNumber": "0",
+    "Id": 1,
+    "Name": "0",
+    "Address": "0",
+    "Phone": "0",
+    "Inn": "1234567890"
+  },
+  {
+    "Bank": "0",
+    "AccountNumber": "0",
+    "Id": 2,
+    "Name": "\u043F\u0430\u043F\u0430",
+    "Address": "0",
+    "Phone": "0",
+    "Inn": "1234567890"
+  }
+]

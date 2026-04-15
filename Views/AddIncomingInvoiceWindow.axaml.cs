@@ -40,7 +40,7 @@ public partial class AddIncomingInvoiceWindow : Window, INotifyPropertyChanged
     {
         InitializeComponent();
         
-        _dataManager = new DataManager();
+        _dataManager = DataManager.Instance;
         DataContext = this;                    // Обязательно для Binding CurrentItems
 
         ReceiptDatePicker.SelectedDate = DateTime.Now;
