@@ -3,6 +3,9 @@ using Avalonia.Interactivity;
 using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
 using System;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Media;
 
 namespace PharmacyWarehouse.Views;
 
@@ -31,43 +34,20 @@ public partial class AddInvoiceItemDialog : Window
     {
         if (MedicineComboBox.SelectedItem is not Medicine selectedMedicine)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите лекарство!");
+            await ShowErrorAsync("Выберите лекарство!");
             return;
-        }
-
-        if (selectedMedicine.IsExpired)
-        {
-            await MessageBoxService.ShowErrorAsync(this, "Запрещено", 
-                $"Лекарство '{selectedMedicine.Name}' ПРОСРОЧЕНО!\n\nПродажа запрещена.");
-            return;
-        }
-
-        if (selectedMedicine.DaysToExpiration <= 0)
-        {
-            await MessageBoxService.ShowErrorAsync(this, "Запрещено", 
-                $"Лекарство '{selectedMedicine.Name}' уже просрочено!");
-            return;
-        }
-
-        // Предупреждение при небольшом остатке срока годности
-        if (selectedMedicine.DaysToExpiration <= 30)
-        {
-            bool confirmed = await MessageBoxService.ShowWarningAsync(this, "Предупреждение", 
-                $"Лекарство '{selectedMedicine.Name}' истекает через {selectedMedicine.DaysToExpiration} дней.\n\nВы уверены, что хотите добавить его в продажу?");
-
-            if (!confirmed) return;
         }
 
         if (!int.TryParse(QuantityBox.Text, out int quantity) || quantity <= 0)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Количество должно быть положительным числом!");
+            await ShowErrorAsync("Количество должно быть положительным числом!");
             QuantityBox.Focus();
             return;
         }
 
         if (!decimal.TryParse(PriceBox.Text, out decimal price) || price <= 0)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Цена должна быть положительной!");
+            await ShowErrorAsync("Цена должна быть положительной!");
             PriceBox.Focus();
             return;
         }
@@ -82,5 +62,37 @@ public partial class AddInvoiceItemDialog : Window
 
         _onItemAdded(item);
         Close();
+    }
+
+    private async Task ShowErrorAsync(string message)
+    {
+        var dialog = new Window
+        {
+            Title = "Ошибка",
+            Width = 420,
+            Height = 170,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            CanResize = false
+        };
+
+        var stack = new StackPanel { Margin = new Thickness(25), Spacing = 20 };
+        stack.Children.Add(new TextBlock 
+        { 
+            Text = message, 
+            TextWrapping = TextWrapping.Wrap 
+        });
+
+        var btn = new Button 
+        { 
+            Content = "OK", 
+            Width = 100, 
+            Height = 35 
+        };
+        btn.Click += (_, _) => dialog.Close();
+
+        stack.Children.Add(btn);
+        dialog.Content = stack;
+
+        await dialog.ShowDialog(this);
     }
 }

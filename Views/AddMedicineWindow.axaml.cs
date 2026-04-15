@@ -3,6 +3,9 @@ using Avalonia.Interactivity;
 using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
 using System;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Media;
 using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
@@ -15,7 +18,7 @@ public partial class AddMedicineWindow : Window
     {
         InitializeComponent();
         _dataManager = DataManager.Instance;
-        
+
         ManufactureDatePicker.SelectedDate = DateTime.Now.AddMonths(-3);
         ExpirationDatePicker.SelectedDate = DateTime.Now.AddYears(1);
     }
@@ -24,55 +27,55 @@ public partial class AddMedicineWindow : Window
     {
         if (string.IsNullOrWhiteSpace(NameBox.Text))
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Название лекарства обязательно для заполнения!");
+            await ShowErrorAsync("Название лекарства обязательно!");
             NameBox.Focus();
             return;
         }
 
         if (string.IsNullOrWhiteSpace(CategoryBox.Text))
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Категория лекарства обязательна!");
+            await ShowErrorAsync("Категория лекарства обязательна!");
             CategoryBox.Focus();
             return;
         }
 
         if (string.IsNullOrWhiteSpace(ManufacturerBox.Text))
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите производителя!");
+            await ShowErrorAsync("Укажите производителя!");
             ManufacturerBox.Focus();
             return;
         }
 
         if (ManufactureDatePicker.SelectedDate == null)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите дату производства!");
+            await ShowErrorAsync("Выберите дату производства!");
             return;
         }
 
         if (ExpirationDatePicker.SelectedDate == null)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите срок годности!");
+            await ShowErrorAsync("Выберите срок годности!");
             return;
         }
 
-        DateTime manufacture = ManufactureDatePicker.SelectedDate.Value.DateTime.Date;
-        DateTime expiration = ExpirationDatePicker.SelectedDate.Value.DateTime.Date;
+        var manufacture = ManufactureDatePicker.SelectedDate.Value.DateTime.Date;
+        var expiration = ExpirationDatePicker.SelectedDate.Value.DateTime.Date;
 
         if (manufacture > DateTime.Now.Date)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Дата производства не может быть в будущем!");
+            await ShowErrorAsync("Дата производства не может быть в будущем!");
             return;
         }
 
         if (expiration <= manufacture)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Срок годности должен быть позже даты производства!");
+            await ShowErrorAsync("Срок годности должен быть позже даты производства!");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(RegNumberBox.Text))
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Регистрационный номер Минздрава обязателен!");
+            await ShowErrorAsync("Регистрационный номер Минздрава обязателен!");
             RegNumberBox.Focus();
             return;
         }
@@ -89,12 +92,33 @@ public partial class AddMedicineWindow : Window
         };
 
         _dataManager.AddMedicine(medicine);
-        
-        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
-        {
+
+        if (VisualRoot is MainWindow main && main.DataContext is MainWindowViewModel vm)
             vm.RefreshAll();
-        }
-        
+
         Close();
+    }
+
+    private async Task ShowErrorAsync(string message)
+    {
+        var dialog = new Window
+        {
+            Title = "Ошибка",
+            Width = 420,
+            Height = 170,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            CanResize = false
+        };
+
+        var stack = new StackPanel { Margin = new Thickness(25), Spacing = 20 };
+        stack.Children.Add(new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap });
+
+        var btn = new Button { Content = "OK", Width = 100, Height = 35 };
+        btn.Click += (_, _) => dialog.Close();
+
+        stack.Children.Add(btn);
+        dialog.Content = stack;
+
+        await dialog.ShowDialog(this);
     }
 }

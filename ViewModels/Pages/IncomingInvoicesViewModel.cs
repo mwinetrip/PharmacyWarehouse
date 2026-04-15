@@ -35,8 +35,5 @@ public partial class IncomingInvoicesViewModel : ViewModelBase
 
     private bool CanDelete() => SelectedIncoming != null;
 
-    public void Refresh()
-    {
-        OnPropertyChanged(nameof(IncomingInvoices));
-    }
+    public void Refresh() => OnPropertyChanged(nameof(IncomingInvoices));
 }

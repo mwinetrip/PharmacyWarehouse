@@ -5,43 +5,24 @@ using PharmacyWarehouse.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Media;
 using PharmacyWarehouse.ViewModels;
 
 namespace PharmacyWarehouse.Views;
 
-public partial class AddIncomingInvoiceWindow : Window, INotifyPropertyChanged
+public partial class AddIncomingInvoiceWindow : Window
 {
     private readonly DataManager _dataManager;
 
-    private ObservableCollection<InvoiceItem> _currentItems = new();
-    public ObservableCollection<InvoiceItem> CurrentItems
-    {
-        get => _currentItems;
-        set
-        {
-            if (_currentItems != value)
-            {
-                _currentItems = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+    public ObservableCollection<InvoiceItem> CurrentItems { get; } = new();
 
     public AddIncomingInvoiceWindow()
     {
         InitializeComponent();
-        
         _dataManager = DataManager.Instance;
-        DataContext = this;                    // Обязательно для Binding CurrentItems
+        DataContext = this;
 
         ReceiptDatePicker.SelectedDate = DateTime.Now;
         LoadSuppliers();
@@ -64,20 +45,20 @@ public partial class AddIncomingInvoiceWindow : Window, INotifyPropertyChanged
     {
         if (string.IsNullOrWhiteSpace(InvoiceNumberBox.Text))
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Укажите номер приходной накладной!");
+            await ShowErrorAsync("Укажите номер приходной накладной!");
             InvoiceNumberBox.Focus();
             return;
         }
 
         if (SupplierComboBox.SelectedItem is not Supplier selectedSupplier)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Выберите поставщика!");
+            await ShowErrorAsync("Выберите поставщика!");
             return;
         }
 
         if (CurrentItems.Count == 0)
         {
-            await MessageBoxService.ShowErrorAsync(this, "Ошибка", "Добавьте хотя бы одну позицию в накладную!");
+            await ShowErrorAsync("Добавьте хотя бы одну позицию в накладную!");
             return;
         }
 
@@ -92,12 +73,33 @@ public partial class AddIncomingInvoiceWindow : Window, INotifyPropertyChanged
         };
 
         _dataManager.AddIncomingInvoice(invoice);
-        
-        if (VisualRoot is MainWindow mainWindow && mainWindow.DataContext is MainWindowViewModel vm)
-        {
+
+        if (VisualRoot is MainWindow main && main.DataContext is MainWindowViewModel vm)
             vm.RefreshAll();
-        }
-        
+
         Close();
+    }
+
+    private async Task ShowErrorAsync(string message)
+    {
+        var dialog = new Window
+        {
+            Title = "Ошибка",
+            Width = 420,
+            Height = 170,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            CanResize = false
+        };
+
+        var stack = new StackPanel { Margin = new Thickness(25), Spacing = 20 };
+        stack.Children.Add(new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap });
+
+        var btn = new Button { Content = "OK", Width = 100, Height = 35 };
+        btn.Click += (_, _) => dialog.Close();
+
+        stack.Children.Add(btn);
+        dialog.Content = stack;
+
+        await dialog.ShowDialog(this);
     }
 }

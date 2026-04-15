@@ -98,7 +98,6 @@ public class DataManager
         }
     }
 
-    // Методы добавления
     public void AddMedicine(Medicine medicine)
     {
         medicine.Id = Medicines.Count > 0 ? Medicines.Max(m => m.Id) + 1 : 1;

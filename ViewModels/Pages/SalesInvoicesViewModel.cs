@@ -35,8 +35,5 @@ public partial class SalesInvoicesViewModel : ViewModelBase
 
     private bool CanDelete() => SelectedSales != null;
 
-    public void Refresh()
-    {
-        OnPropertyChanged(nameof(SalesInvoices));
-    }
+    public void Refresh() => OnPropertyChanged(nameof(SalesInvoices));
 }
