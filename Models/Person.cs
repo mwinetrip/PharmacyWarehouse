@@ -10,6 +10,11 @@ public abstract class Person
     public string Phone { get; set; } = string.Empty; // Номер телефона
     public string Inn { get; set; } = string.Empty; // ИНН (10 или 12 цифр)
 
+    public override string ToString()
+    {
+        return $"{Name} (ИНН: {Inn})";
+    }
+    
     public virtual string GetInfo() =>
         $"{Name} (ИНН: {Inn}), тел: {Phone}, адрес: {Address}";
 }
