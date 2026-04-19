@@ -8,7 +8,7 @@ using Avalonia;
 using Avalonia.Media;
 using PharmacyWarehouse.ViewModels;
 
-namespace PharmacyWarehouse.Views;
+namespace PharmacyWarehouse.Views.AddWindow;
 
 public partial class AddMedicineWindow : Window
 {

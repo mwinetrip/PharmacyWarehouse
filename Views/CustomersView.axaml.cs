@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using PharmacyWarehouse.Views.AddWindow;
 
 namespace PharmacyWarehouse.Views;
 

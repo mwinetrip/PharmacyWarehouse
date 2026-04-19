@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Media;
 
-namespace PharmacyWarehouse.Views;
+namespace PharmacyWarehouse.Views.AddWindow;
 
 public partial class AddInvoiceItemDialog : Window
 {

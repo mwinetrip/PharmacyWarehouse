@@ -26,25 +26,28 @@ build_property.EnableCodeStyleSeverity =
 [/Users/mwinetrip/PharmacyWarehouse/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddCustomerWindow.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddCustomerWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddIncomingInvoiceWindow.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddIncomingInvoiceWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddInvoiceItemDialog.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddInvoiceItemDialog.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddMedicineWindow.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddMedicineWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddSalesInvoiceWindow.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddSalesInvoiceWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/mwinetrip/PharmacyWarehouse/Views/AddSupplierWindow.axaml]
+[/Users/mwinetrip/PharmacyWarehouse/Views/AddWindow/AddSupplierWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/mwinetrip/PharmacyWarehouse/Views/CustomersView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/PharmacyWarehouse/Views/EditWindow/EditMedicineWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/mwinetrip/PharmacyWarehouse/Views/IncomingInvoicesView.axaml]

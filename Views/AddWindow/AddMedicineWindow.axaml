@@ -1,6 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="PharmacyWarehouse.Views.AddMedicineWindow"
+        x:Class="PharmacyWarehouse.Views.AddWindow.AddMedicineWindow"
         Width="460"
         Height="520"
         Title="Добавить новое лекарство"

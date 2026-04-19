@@ -10,8 +10,13 @@
         <entry key="Views/AddMedicineWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddSalesInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/AddSupplierWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddWindow/AddCustomerWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddWindow/AddIncomingInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddWindow/AddMedicineWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddWindow/AddSalesInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/CustomersView.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/EditCustomerWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/EditWindow/EditMedicineWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/IncomingInvoicesView.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/MainWindow.axaml" value="PharmacyWarehouse.csproj" />
         <entry key="Views/MedicinesView.axaml" value="PharmacyWarehouse.csproj" />

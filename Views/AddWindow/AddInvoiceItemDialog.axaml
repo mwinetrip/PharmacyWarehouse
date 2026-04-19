@@ -1,6 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="PharmacyWarehouse.Views.AddInvoiceItemDialog"
+        x:Class="PharmacyWarehouse.Views.AddWindow.AddInvoiceItemDialog"
         Width="500"
         Height="320"
         Title="Добавить позицию в накладную"

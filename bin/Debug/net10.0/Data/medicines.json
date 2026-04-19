@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "Id": 1,
+    "Name": "0",
+    "Category": "0",
+    "ManufactureDate": "2026-01-20T00:00:00",
+    "ExpirationDate": "2027-04-20T00:00:00",
+    "RegistrationNumber": "0",
+    "Manufacturer": "0",
+    "PackageType": "0",
+    "IsExpired": false,
+    "DaysToExpiration": 365
+  }
+]

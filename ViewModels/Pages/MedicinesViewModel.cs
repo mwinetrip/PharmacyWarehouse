@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PharmacyWarehouse.Models;
 using PharmacyWarehouse.Services;
+using PharmacyWarehouse.Views.EditWindow;
 
 namespace PharmacyWarehouse.ViewModels.Pages;
 
@@ -18,14 +19,17 @@ public partial class MedicinesViewModel : ViewModelBase
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(DeleteCommand))]
+    [NotifyCanExecuteChangedFor(nameof(EditCommand))]
     private Medicine? selectedMedicine;
 
     public IRelayCommand DeleteCommand { get; }
+    public IRelayCommand EditCommand { get; }
 
     public MedicinesViewModel(DataManager dataManager)
     {
         _dataManager = dataManager;
         DeleteCommand = new RelayCommand(DeleteSelected, CanDelete);
+        EditCommand = new RelayCommand(EditSelected, CanEdit);
     }
 
     private void DeleteSelected()
@@ -46,7 +50,18 @@ public partial class MedicinesViewModel : ViewModelBase
         Refresh();
     }
 
+    private void EditSelected()
+    {
+        if (SelectedMedicine == null) return;
+
+        var editWindow = new EditMedicineWindow(SelectedMedicine);
+        editWindow.ShowDialog(null);   // null = без владельца, или передай MainWindow позже
+
+        Refresh();
+    }
+
     private bool CanDelete() => SelectedMedicine != null;
+    private bool CanEdit() => SelectedMedicine != null;
 
     public void Refresh() => OnPropertyChanged(nameof(Medicines));
 

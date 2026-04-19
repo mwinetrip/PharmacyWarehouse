@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dg="using:Avalonia.Controls"
              xmlns:vm="using:PharmacyWarehouse.ViewModels.Pages"
              mc:Ignorable="d"
              x:Class="PharmacyWarehouse.Views.MedicinesView"
@@ -12,32 +13,36 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="10" Margin="0,0,0,15">
             <Button Content="➕ Добавить лекарство" 
                     Click="AddMedicine_Click" 
-                    Height="42" Width="280" />
+                    Height="42" Width="200" />
+
+            <Button Content="✏️ Редактировать" 
+                    Command="{Binding EditCommand}"
+                    Height="42" Width="160" />
 
             <Button Content="🗑 Удалить выбранное" 
                     Command="{Binding DeleteCommand}"
-                    Height="42" Width="200"/>
+                    Height="42" Width="180" />
         </StackPanel>
 
-        <!-- Таблица -->
-        <DataGrid ItemsSource="{Binding Medicines}" 
+        <!-- Таблица лекарств -->
+        <dg:DataGrid ItemsSource="{Binding Medicines}" 
                      SelectedItem="{Binding SelectedMedicine}"
                      AutoGenerateColumns="False"
                      IsReadOnly="True"
                      GridLinesVisibility="All"
                      CanUserResizeColumns="True">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="280"/>
-                <DataGridTextColumn Header="Категория" Binding="{Binding Category}" Width="160"/>
-                <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}" Width="200"/>
-                <DataGridTextColumn Header="Упаковка" Binding="{Binding PackageType}" Width="130"/>
-                <DataGridTextColumn Header="Рег. номер" Binding="{Binding RegistrationNumber}" Width="140"/>
-                <DataGridTextColumn Header="Дата производства" Binding="{Binding ManufactureDate, StringFormat=dd.MM.yyyy}" Width="130"/>
-                <DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=dd.MM.yyyy}" Width="130"/>
-                <DataGridTextColumn Header="Просрочено" Binding="{Binding IsExpired}" Width="100"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            <dg:DataGrid.Columns>
+                <dg:DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+                <dg:DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="280"/>
+                <dg:DataGridTextColumn Header="Категория" Binding="{Binding Category}" Width="160"/>
+                <dg:DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}" Width="200"/>
+                <dg:DataGridTextColumn Header="Упаковка" Binding="{Binding PackageType}" Width="130"/>
+                <dg:DataGridTextColumn Header="Рег. номер" Binding="{Binding RegistrationNumber}" Width="140"/>
+                <dg:DataGridTextColumn Header="Дата производства" Binding="{Binding ManufactureDate, StringFormat=dd.MM.yyyy}" Width="130"/>
+                <dg:DataGridTextColumn Header="Срок годности" Binding="{Binding ExpirationDate, StringFormat=dd.MM.yyyy}" Width="130"/>
+                <dg:DataGridTextColumn Header="Просрочено" Binding="{Binding IsExpired}" Width="100"/>
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
     </DockPanel>
 </UserControl>

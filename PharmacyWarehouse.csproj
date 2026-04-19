@@ -24,4 +24,31 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AddWindow\AddCustomerWindow.axaml.cs">
+      <DependentUpon>AddCustomerWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWindow\AddIncomingInvoiceWindow.axaml.cs">
+      <DependentUpon>AddIncomingInvoiceWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWindow\AddInvoiceItemDialog.axaml.cs">
+      <DependentUpon>AddInvoiceItemDialog.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWindow\AddMedicineWindow.axaml.cs">
+      <DependentUpon>AddMedicineWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWindow\AddSalesInvoiceWindow.axaml.cs">
+      <DependentUpon>AddSalesInvoiceWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddWindow\AddSupplierWindow.axaml.cs">
+      <DependentUpon>AddSupplierWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
