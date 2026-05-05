@@ -1,0 +1,63 @@
+is_global = true
+build_property.AvaloniaNameGeneratorIsEnabled = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.AvaloniaNameGeneratorViewFileNamingStrategy = NamespaceAndClassName
+build_property.AvaloniaNameGeneratorAttachDevTools = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PharmacyWarehouse
+build_property.ProjectDir = /Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddCustomerWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddIncomingInvoiceWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddInvoiceItemDialog.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddMedicineWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddSalesInvoiceWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/AddSupplierWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/CustomersView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/IncomingInvoicesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/MedicinesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/SalesInvoicesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/mwinetrip/Desktop/Учёба/2 курс/Программирование/PharmacyWarehouse/Views/SuppliersView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

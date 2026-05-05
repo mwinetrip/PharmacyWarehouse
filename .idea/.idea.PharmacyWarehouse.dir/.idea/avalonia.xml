@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="App.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddCustomerWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddIncomingInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddInvoiceItemDialog.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddMedicineWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddSalesInvoiceWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/AddSupplierWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/CustomersView.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/EditCustomerWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/IncomingInvoicesView.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/MainWindow.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/MedicinesView.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/SalesInvoicesView.axaml" value="PharmacyWarehouse.csproj" />
+        <entry key="Views/SuppliersView.axaml" value="PharmacyWarehouse.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
